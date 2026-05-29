@@ -1,31 +1,45 @@
 import json
+import csv
 import datetime
 
 def generate_report(sum_val, avg_val, max_val):
-    report = {
+    timestamp = str(datetime.datetime.now())
+    
+    # 1. Generate JSON Report (For modern APIs)
+    report_data = {
         "project": "Data-Processor-Core",
-        "timestamp": str(datetime.datetime.now()),
+        "timestamp": timestamp,
         "status": "Success",
         "metrics": {
-            "sum": sum_val,
-            "average": avg_val,
+            "sum": sum_val, 
+            "average": avg_val, 
             "max": max_val
         }
     }
-    
-    # Save the results as a JSON file (standard for backend)
     with open('output_report.json', 'w') as f:
-        json.dump(report, f, indent=4)
-    print("Python Integration: Report generated successfully in 'output_report.json'")
+        json.dump(report_data, f, indent=4)
+
+    # 2. Generate CSV Report (For Enterprise/Excel integration)
+    with open('output_report.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        # Headers and Data row
+        writer.writerow(["Project", "Timestamp", "Status", "Sum", "Average", "Max"])
+        writer.writerow(["Data-Processor-Core", timestamp, "Success", sum_val, avg_val, max_val])
+    
+    print("\n[✔] Success: JSON and CSV reports generated successfully.")
 
 if __name__ == "__main__":
-    print("--- Live Data Entry System ---")
+    print("--- Enterprise Data Entry System ---")
+    print("Please enter the metrics processed by the C++ Core:")
     
-    # Pedimos los datos al usuario (Data Entry)
-    # Usamos float() para que acepte decimales
-    s = float(input("Enter Total Sum: "))
-    a = float(input("Enter Average: "))
-    m = float(input("Enter Max Value: "))
+    try:
+        # Live Data Entry
+        s = float(input("Enter Total Sum: "))
+        a = float(input("Enter Average: "))
+        m = float(input("Enter Max Value: "))
 
-    # Generamos el reporte con los datos que acabas de escribir
-    generate_report(s, a, m)
+        # Execution
+        generate_report(s, a, m)
+        
+    except ValueError:
+        print("[✘] Error: Please enter valid numeric values.")
