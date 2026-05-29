@@ -1,0 +1,10 @@
+{
+    "project": "Data-Processor-Core",
+    "timestamp": "2024-05-24 10:00:00",
+    "status": "Success",
+    "metrics": {
+        "sum": 133.85,
+        "average": 22.3,
+        "max": 45.1
+    }
+}
