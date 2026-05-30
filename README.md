@@ -26,14 +26,6 @@ This repository serves as a professional showcase of a **Modernization & Perform
 ## ⚙️ How it Works
 The C++ core processes raw data streams, which are then captured by the Python layer to be transformed into standardized formats (JSON), simulating a real-world enterprise backend environment.
 
-## 🗺️ Professional Development Roadmap
-I am currently bridging the gap between robust legacy systems and modern high-performance languages. My current focus includes:
-
-*   **Modernizing AS/400 Workflows:** Learning to export legacy data into formats like CSV/JSON to be processed by my **C++/Python** data engine.
-*   **SQL Mastery:** Advancing from basic Queries to complex SQL optimization for DB2 (IBM i) and PostgreSQL to handle large-scale data sets.
-*   **Advanced Linux Systems:** Deepening my knowledge of shell scripting and server management for robust backend environments.
-*   **Cloud Infrastructure:** Exploring AWS/Azure to host and scale hybrid data processing engines in a modern cloud-native architecture.
-
 ## 🖥️ How to Run
 
 ### 1. Execute the C++ Core
